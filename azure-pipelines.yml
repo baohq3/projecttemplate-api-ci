@@ -67,15 +67,15 @@ stages:
       - script: |
           mv $(csproject)/appsettings.azure.json $(csproject)/appsettings.json
         displayName: 'Replace appsetting'
-
       - task: SonarCloudPrepare@2
         inputs:
           SonarCloud: 'sonarcloud'
-          organization: 'loctad'
+          organization: 'baohq3'
           scannerMode: 'MSBuild'
-          projectKey: 'loctad_projecttemplate-api'
-          projectName: 'projecttemplate-api'
+          projectKey: 'baohq3_projecttemplate-api-ci'
+          projectName: 'projecttemplate-api-ci'
           extraProperties: 'sonar.qualitygate.wait=$(sonarqualitygatewait)'
+          
       - task: DotNetCoreCLI@2
         displayName: Build solution
         inputs:
